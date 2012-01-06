@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DrpTicTacToe</title>
+  <%= stylesheet_link_tag :application %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+  
+  <div class="span-site">
+    <h1><%=link_to "DRP", "http://drp.rubyforge.org/"%> - genetic examples</h1>
+    <p><%=link_to "Home", root_path %></p>
+    <hr/>
+    <div class="span6 pull-left">
+      <% unless params[:controller] == "home" %>
+        <p><%=link_to "Run it again!", "" %>
+        <hr/>
+      <% end %>
+      <%= yield %>
+      <% unless params[:controller] == "home" %>
+        <hr/>
+        <p><%=link_to "Run it again!", "" %>
+      <% end %>
+    </div>
+    <div class="span7 pull-right">
+      <% if File.exists?("app/models/#{params[:controller]}.rb") %>
+<pre>
+<%=File.read("app/models/#{params[:controller]}.rb")%>
+</pre>
+      <% end %>
+    </div>
+    <br style="clear:both;"/>
+    <div>
+      <hr/>
+      <p>Just playing around with <%=link_to "DRP", "http://drp.rubyforge.org/"%>.</p>
+    </div>
+  </div>
+  
+</body>
+</html>
