@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  username: wiseleyb
+  password:
+  database: drp_development
+  pool: 5
+  timeout: 5000
+  
+test: &test
+  adapter: postgresql
+  username: wiseleyb
+  password:
+  database: drp_test
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  username: wiseleyb
+  password:
+  database: drp_production
+  pool: 5
+  timeout: 5000
